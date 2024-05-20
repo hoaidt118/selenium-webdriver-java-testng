@@ -38,7 +38,7 @@ public class Topic_04_Relative_Locator {
         //Login button
         By loginButtonBy = By.cssSelector("button.login-button");
         WebElement loginButtonElement = driver.findElement(By.cssSelector("button.login-button"));
-        RelativeLocator.with(By.tagName("label"));
+        RelativeLocator.with(By.tagName("label "));
     }
 
 

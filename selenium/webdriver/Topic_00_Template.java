@@ -24,7 +24,7 @@ public class Topic_00_Template {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get("https://www.facebook.com/");
+        driver.get("https://demo.nopcommerce.com/register");
 
         driver.manage().window().maximize();
     }
