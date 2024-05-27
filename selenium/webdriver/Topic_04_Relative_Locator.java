@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Topic_04_Relative_Locator {
@@ -38,10 +39,30 @@ public class Topic_04_Relative_Locator {
         //Login button
         By loginButtonBy = By.cssSelector("button.login-button");
         WebElement loginButtonElement = driver.findElement(By.cssSelector("button.login-button"));
-        RelativeLocator.with(By.tagName("label "));
+        RelativeLocator.with(By.tagName("label")).above(loginButtonBy);
+        // Remember Me Checkbox
+        By rememberMeCheckboxBy = By.id("RememberMe");
+
+        //Forgot Password link
+        WebElement fotgotPasswordElement = driver.findElement(By.cssSelector("span.forgot-password"));
+
+        //Password texbox
+        By passwordTextboxBy= By.cssSelector("input#Password");
+
+
+        WebElement rememberMeTextElement = driver
+                .findElement(RelativeLocator.with(By.tagName("label"))
+                .above(loginButtonElement)
+                .toRightOf(rememberMeCheckboxBy)
+                .toLeftOf(fotgotPasswordElement)
+                .below(passwordTextboxBy)
+                .near(fotgotPasswordElement));
+        System.out.println(rememberMeTextElement.getText());
+
+        //List thẻ a
+        List<WebElement> allLinks = driver.findElements(RelativeLocator.with(By.tagName("a")));
+        System.out.println(allLinks.size());
     }
-
-
 
     @AfterClass
     public void afterClass() {
